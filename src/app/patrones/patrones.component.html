@@ -1,0 +1,24 @@
+<p class="text-center pt-2" >
+    En este punto se explicará la creación de patrones o pipes que vimos durante el curso, recordad que algunos nos los proporciona Angular.
+</p>
+  <p>Vimos varias opciones durante el curso, como por ejemplo las fechas, los números, monedas</p>
+  <p>Para obtener información, https://angular.io/guide/pipes.</p>
+  
+  <div class="container bg-dark text-white my-2 py-2"><p class="text-center">Patrones en Fechas, decimales, mayúsculas</p></div>
+    <div class="container">
+      <p>Se muestra el valor de fecha sin patrón o pipe {{fecha}}</p>
+      <p>Valor con patrón o pipe, se recuerda debe incluir | {{fecha | date:'d/M/y H:m'}}</p>
+      <p>Patron mayúscula y minúscula, uppercase y lowercase para la variable ciudad, valor de variable, {{ciudad}}, con las pipes {{ciudad | uppercase}}, {{ciudad | lowercase}}</p>
+      <p>Se incluye patrón o pipes de números, variable resultado tipe number, valor de variable {{numero}}, con pipe {{numero | number:'3.2-3'}}</p>
+    </div>
+  
+  
+  <div class="container bg-dark text-white my-2 py-2"><p class="text-center">Patron popio</p></div>
+    <div class="container">
+      <p> Para generar patrón o pipe propia, se utiliza expresion ng g pipe nombrePipe</p>
+      <p>Se va a crear uno para poner siempre metros como unidad de medida, el patron creado se llama metros</p>
+      <p>El campo de fúlbol del rayo tiene {{ anchuraRayo | metros}} de ancho, y el del campeón de Europa {{ anchuraMadrid | metros}}, dado esto es {{diferenciaMetros() | metros}} menor.</p>
+    </div>
+  
+  
+    <!-- https://angular.io/api/common/NgClass -->

@@ -1,0 +1,59 @@
+<p class="text-center pt-2" >
+  En este punto se explicará la creación de directivas que vimos durante el curso, if y for y propias,
+</p>
+<p>Vimos 3 situaciones,</p>
+<ol>
+  <li>If</li>
+  <li>For</li>
+  <li>Directiva propia</li>
+</ol>
+<p>También os dejo el link de angular desde donde se puede obtener información,https://angular.io/api/common#directives</p>
+
+<div class="container bg-dark text-white my-2 py-2"><p class="text-center">ngIF valor de variable {{mostrarTexto}}</p></div>
+  <div class="container">
+    <button class="btn btn-success" (click)="mostrarTexto=!mostrarTexto">Botón con evento click</button>
+      <p class="text-success" *ngIf="mostrarTexto; else segundoTexto">En botón se crea el evento click cambiando el valor de una variable, boolean, creada en directivas.comopnent.ts al ser pulsado, recordad !variable es la negación es decir, si vale true pasa a ser false y viceversa.
+        Y este texto tiene la directiva ngIf, de tal forma que se mostrará o no en función de su valor. 
+      </p>
+      <ng-template #segundoTexto>
+      <p class="text-warning">Este texto se mostrará cuando no cumpla la condición del if anterior, para ello se ha introducido dentro de etiqueta o template
+        'ng-template' y se ha linkado con el enlace creado anteriormente </p>
+    </ng-template>
+  </div>
+
+
+<div class="container bg-dark text-white my-2 py-2"><p class="text-center">ngFOR</p></div>
+  <div class="container">
+    <p>Para esta demostración se crea un array dentro de directive.component.ts y a continuación se recorrerá mediante directiva FOR</p>
+    <ul>
+        <li *ngFor="let color of colores">{{color}}</li>
+    </ul>
+    <p>En el segundo ejemplo se crea un array de objetos, en directive.component.ts, y se muestran por pantalla mediante una tabla, la opción index as i, lo utilizo como contador para numerar los elementos de mi tabla,</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Profesion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alumno of alumnos;index as i">
+            <th scope="row">{{i+1}}</th>
+            <td appDirectivaPropia >{{alumno.Nombre}}</td>
+            <td>{{alumno.Edad}}</td>
+            <td>{{alumno.Profesion}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="container bg-dark text-white my-2 py-2"><p class="text-center">DIRECTIVA PROPIA</p></div>
+  <div class="container">
+    Se creado directiva propia, para ello se debe generar una directiva como siempre ng g directive nombreDirectiva --spec false, 
+    esto nos genera un fichero donde damos la lógica y un selector que es lo que se utiliza para dar linkar la directiva a los elementos.
+    La directiva propia creada se utiliza para la tabla anterior y detecta cuando se posiciona sobre un elemento cambiando el color de fondo.   
+  </div>
+
+  <!-- https://angular.io/api/common/NgClass -->

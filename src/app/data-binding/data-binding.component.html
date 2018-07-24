@@ -1,0 +1,40 @@
+<p class="text-center pt-2">
+  En este punto mostraremos las formas de mostrar información que vimos durante el curso: 
+</p>
+<p>
+  Se pintaron dos situaciones que fueron, 
+</p>
+  <ul>
+    <li>
+      En un camino o one way, podía ser por Interpolación, property o event binding
+      <ol>
+        <li>Interpolación con variable</li>
+        <li>Interpolación con event binding</li>
+        <li>Interpolación con property binding</li>
+      </ol>
+    </li>
+    <li>
+        En doble sentido o two-way binding
+    </li>
+  </ul>
+  <div class="container bg-dark text-white my-2 py-2"><p class="text-center">EN ONE WAY</p></div>
+<h2>Interpolación</h2>
+<ol>
+  <li>
+    <p>Mostrando el valor de una variable creada en el fichero component.ts con expresión doble llave y el nombre de la variable, {{interpolacion}}.</p>
+  </li>
+  <li>
+    <p>Mostrando el valor que devuelve una función creada en el fichero component.ts con expresión doble llave y el nombre de la función, {{getEdad()}}.</p>
+  </li>
+  <li>
+    <p>Mostrando distintas propiedades de una variable creada en el fichero component.ts externo al de este componente. Para ello debo, </p>
+      <p>1. Importar dicho component.ts en el component.ts de este componente. </p>
+      <p>2. Con expresión doble llave y el nombre de la variable y su propiedad, .</p>
+  </li>
+</ol>
+<div class="container bg-dark text-white my-2 py-2"><p class="text-center">EN TWO  WAY</p></div>
+<p>Para hacerlo en two way, nos ayudaremos de input o de formularios, para ir mostrando lo info que nos proporciona el user, mediante ngModel </p>
+
+<label>Introduce un valor</label>
+<input type="text" class="form-control" [(ngModel)]="info" placeholder="{{datos}}">
+<h3>{{info}}</h3>

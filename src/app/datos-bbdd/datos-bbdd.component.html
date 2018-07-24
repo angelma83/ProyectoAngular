@@ -1,0 +1,50 @@
+<div class="container-fluid mt-3">
+<form (ngSubmit)='agregarAlumno()'>
+    <input placeholder="inserte nombre" [(ngModel)]='nuevoAlumno.nombre' name='nombre' class="mr-3">
+    <input placeholder="inserte apellido" [(ngModel)]='nuevoAlumno.apellido' name='apellido' class="mr-3">
+    <input placeholder="inserte edad" [(ngModel)]='nuevoAlumno.edad' name='edad' class="mr-3">
+<button type="submit" class="btn btn-sucess">Agregar</button>
+</form>
+</div>
+<div *ngFor='let alumno of alumnos'class=' container-fluid mt-3'>
+    <p class="float-left">{{alumno.nombre}}
+        {{alumno.apellido}}
+        {{alumno.edad}}
+        <!-- {{alumno.id}} -->
+       </p>
+ 
+    <div (click)="eliminarAlumno(alumno)" class="float-left ml-3 mr-3 btn btn-warning">
+        <span class="oi oi-trash"></span>
+    </div>
+    <div (click)='actualizarAlumno(alumno)'class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <span class="oi oi-clipboard"></span>
+    </div>
+</div>
+
+      
+      <!-- Modal, que se activa cuando algún usuario quiere actualizar un alumno de la BBDD.
+    Esta modal, tendra los input con la información del alumno -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Actualiza Alumno</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)='agregarModificacionAlumno()'>
+                    <input class="mr-3 mb-3" placeholder="inserte nombre" [(ngModel)]='editarAlumno.nombre' name='nombre'>
+                    <input class="mr-3 mb-3" placeholder="inserte apellido" [(ngModel)]='editarAlumno.apellido' name='apellido'>
+                    <input class="mr-3" placeholder="inserte edad" [(ngModel)]='editarAlumno.edad' name='edad'>
+                    <button type="submit" class="btn" >Modificar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
